@@ -20,38 +20,38 @@ namespace Assignment
         }
 
         #region Lecture
-
+        public string[] ironManSuit;
         public void LCT01_SyntaxArray()
         {
-            string[] _ironManSuit = new string[2]; //ใช้ภายในฟังชั่นนี้เท่านั้น local
+            string[] _ironManSuit = new string[2];
             _ironManSuit[0] = "Mark I";
             _ironManSuit[1] = "Mark II";
-            //_ironManSuit[2] = " a "; // ใส่ข้อมูลให้ถูก
-            //_ironManSuit[2] = "Mark III"; // ห้ามเกิน
-            string tonyStarkWear = _ironManSuit[0]; // get
-            Debug.Log("TonyStarkWear" + tonyStarkWear);
-            Debug.Log("Room size" + _ironManSuit.Length);
-            
-            //การเข้าถึงขนานของ Array เพื่อใช้งานร่วมกับ for
+
+            string tonyStarkWear = _ironManSuit[0];
+            Debug.Log("TonyStark Wear " + tonyStarkWear);
+            Debug.Log("Room size: " + _ironManSuit.Length);
 
             Debug.Log(_ironManSuit[0]);
             Debug.Log(_ironManSuit[1]);
+
         }
 
         public void LCT02_ArrayInitialize()
         {
-            string[] spidermanSuit = new string[] { "Classic", "Black Suit", "Iron Spider" };
-            string[] batmanSuit = new string[] { "Classaic batman", "White bat" };
-            //วิธีประกาศค่า
-            Debug.Log("Room size :" + spidermanSuit.Length);
-            Debug.Log(spidermanSuit[0]);
-            Debug.Log(spidermanSuit[1]);
-            Debug.Log(spidermanSuit[2]);
+            string[] spidermanSuits = new string[] { "Classic", "Black Suit", "Iron Spider" };
+            string[] batmanSuits = new string[2] { "Classic batman", "White bat" };
 
-            Debug.Log("Room size :" + batmanSuit.Length);
-            Debug.Log(batmanSuit[0]);
-            Debug.Log(batmanSuit[1]);
+            Debug.Log("Room size: " + spidermanSuits.Length);
+            Debug.Log(spidermanSuits[0]);
+            Debug.Log(spidermanSuits[1]);
+            Debug.Log(spidermanSuits[2]);
+
+            Debug.Log("Room size: " + batmanSuits.Length);
+            Debug.Log(batmanSuits[0]);
+            Debug.Log(batmanSuits[1]);
+            Debug.Log(batmanSuits[2]);
         }
+
 
         /*
          * จงเขียนโปรแกรมเพื่อแสดงผลลัพธ์ตามที่กำหนด โดยใช้โครงสร้างการวนซ้ำ for loop
@@ -74,8 +74,7 @@ namespace Assignment
                 Debug.Log("<10 : " + i);
             }
             Debug.Log("==================");
-
-            for (int i = 1; i <= 10; i++)
+            for (int i = 0; i < 10; i++)
             {
                 Debug.Log("<=10 : " + i);
             }
@@ -110,17 +109,18 @@ namespace Assignment
         public string[] lct04_ironManSuitNames;
         public void LCT04_LoopAndArray()
         {
-            Debug.Log("===== Log by One increment =====");
+            Debug.Log("====== Log by One increment ======");
             for (int i = 0; i < lct04_ironManSuitNames.Length; i++)
             {
                 Debug.Log(lct04_ironManSuitNames[i]);
             }
-            Debug.Log("===== Log by Two increment =====");
-            for (int i = 0; i < lct04_ironManSuitNames.Length; i = +2)
+            Debug.Log("====== Log by Two increment ======");
+            for (int i = 0; i < lct04_ironManSuitNames.Length; i += 2)
             {
                 Debug.Log(lct04_ironManSuitNames[i]);
             }
         }
+
 
         /*
          * จงเขียนโปรแกรมภาษา C# เพื่อสร้างอาร์เรย์สองมิติ (2D array)
@@ -154,22 +154,20 @@ namespace Assignment
          */
         public void LCT05_Syntax2DArray()
         {
-            int[,] my2DArray = new int[3, 3] 
-            { //col 1 2 3
-              //col 0 1 2
-                {1,2,3},// rol 1 0
-                {4,5,6},// rol 2 1
-                {7,8,9},// rol 3 2
+            int[,] my2DArray = new int[3, 3]
+            {//col 1 2 3
+             //col 0 1 2
+                  {1,2,3},
+                  { 4,5,6},
+                  { 7,8,9},
             };
-            
-            //GetLenght(0) หมายถึง Array ช่องแรก หรือ X หรือ row
-            for (int row = 0; row < my2DArray.GetLength(0); row++) 
+
+            for (int row = 0; row < my2DArray.GetLength(0); row++)
             {
                 string rowStr = "";
-                //GetLenght(0) หมายถึง Array ช่องแรก หรือ X หรือ col
-                for (int col = 0; col < my2DArray.GetLength(0); col++) 
+                for (int col = 0; col < my2DArray.GetLength(1); col++)
                 {
-                    rowStr += my2DArray[row,col] + ",";
+                    rowStr += my2DArray[row, col];
                 }
                 Debug.Log(rowStr);
             }
@@ -202,8 +200,7 @@ namespace Assignment
          * - lct06_my2DArray: อาร์เรย์ 2 มิติ (2D array) แก้ไขค่าได้จาก Inspector
          */
         [Header("LCT06_SizeOf2DArray")]
-        public int[,] LCT062DArray;//จะไม่แสดงข้อมูลใน unity
-
+        public int[,] LCT062DArray;
         public Grid2DInt lct06_my2DArray = new Grid2DInt
         {
             rows = 3,
@@ -217,10 +214,10 @@ namespace Assignment
             int rows = my2DArray.GetLength(0);
             int cols = my2DArray.GetLength(1);
             int size = my2DArray.Length;
-            
-            Debug.Log("rows" + rows);
-            Debug.Log("cols" + cols);
-            Debug.Log("size" + size);
+
+            Debug.Log("rows " + rows);
+            Debug.Log("cols " + cols);
+            Debug.Log("size " + size);
         }
 
         /*
